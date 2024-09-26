@@ -92,12 +92,16 @@ describe Drink do
       # Create an explicit subject, using 'described_class' and your choice of
       # beverage type.
 
+      subject(:juice) { described_class.new('juice') }
+
       # remove the 'x' before running this test
-      xit 'is your choice of beverage' do
+      it 'is your choice of beverage' do
+        expect(juice.type).to eq('juice')
       end
 
       # remove the 'x' before running this test
-      xit 'has 16 ounces' do
+      it 'has 16 ounces' do
+        expect(juice.ounces).to eq(16)
       end
     end
   end
@@ -107,8 +111,11 @@ describe Drink do
       # Create an explicit subject, using 'described_class' and your choice of
       # beverage type.
 
+      subject(:water) { described_class.new }
+
       # remove the 'x' before running this test
-      xit 'is full' do
+      it 'is full' do
+        expect(water).to be_full
       end
     end
 
@@ -116,8 +123,11 @@ describe Drink do
       # Create an explicit subject, using 'described_class' and your choice of
       # beverage type. In addition, specify ounces to be any number under 16.
 
+      subject(:water) { described_class.new('water', 12) }
+
       # remove the 'x' before running this test
-      xit 'is not full' do
+      it 'is not full' do
+        expect(water).not_to be_full
       end
     end
   end
